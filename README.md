@@ -32,8 +32,10 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   + mở cmd, chuyển đến thư mục: `D:\nodejs\nodered`
   + cài đặt service `a1-nodered` bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd"
   + chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
+  + 
 2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name  
 2.4. Cài đặt thư viện trên nodered:
+    
 - truy cập giao diện nodered bằng url: http://localhost:1880
 - cài đặt các thư viện: node-red-contrib-mssql-plus, node-red-node-mysql, node-red-contrib-telegrambot, node-red-contrib-moment, node-red-contrib-influxdb, node-red-contrib-duckdns, node-red-contrib-cron-plus
 - Sửa file `D:\nodejs\nodered\work\settings.js` :
@@ -49,6 +51,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
    với mã hoá mật khẩu có thể thiết lập bằng tool: https://tms.tnut.edu.vn/pw.php
 - chạy lại nodered bằng cách: mở cmd, vào thư mục `D:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered`
   khi đó nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: http://localhost:1880
+  
 2.5. tạo api back-end bằng nodered:
 - tại flow1 trên nodered, sử dụng node `http in` và `http response` để tạo api
 - thêm node `MSSQL` để truy vấn tới cơ sở dữ liệu
@@ -59,6 +62,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   4. http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json
   có thể thêm node `debug` để quan sát giá trị trung gian.
 - test api thông qua trình duyệt, ví dụ: http://localhost:1880/timkiem?q=thị
+  
   2.6. Tạo giao diện front-end:
 - html form gồm các file : index.html, fullname.js, fullname.css
   cả 3 file này đặt trong thư mục: `D:\Apache24\fullname`
@@ -66,11 +70,13 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   khi đó 3 file sẽ là: index.html, doduycop.js và doduycop.css
 - index.html và fullname.css: trang trí tuỳ ý, có dấu ấn cá nhân, có form nhập được thông tin.
 - fullname.js: lấy dữ liệu trên form, gửi đến api nodered đã làm ở bước 2.5, nhận về json, dùng json trả về để tạo giao diện phù hợp với kết quả truy vấn của bạn.
+- 
 2.7. Nhận xét bài làm của mình:
   Bài Làm:
  2.1
   Bước 1: Vô hiệu hoá IIS
 Nhấn Start → gõ cmd -> Chuột phải vào Command Prompt → chọn Run as administrator -> Sau đó nhập lênh: iisreset /stop
+
 2.2. Cài đặt nodered
 Chạy cmd (Admin), vào thư mục D:\nodejs, chạy lệnh npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"
 Sau khi chạy cmd, kết quả nodered hiển thị trong thư mục D:\nodejs
