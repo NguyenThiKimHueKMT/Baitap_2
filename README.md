@@ -32,7 +32,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   + mở cmd, chuyển đến thư mục: `D:\nodejs\nodered`
   + cài đặt service `a1-nodered` bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd"
   + chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
-2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name
+2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name  
 2.4. Cài đặt thư viện trên nodered:
 - truy cập giao diện nodered bằng url: http://localhost:1880
 - cài đặt các thư viện: node-red-contrib-mssql-plus, node-red-node-mysql, node-red-contrib-telegrambot, node-red-contrib-moment, node-red-contrib-influxdb, node-red-contrib-duckdns, node-red-contrib-cron-plus
@@ -59,7 +59,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   4. http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json
   có thể thêm node `debug` để quan sát giá trị trung gian.
 - test api thông qua trình duyệt, ví dụ: http://localhost:1880/timkiem?q=thị
-2.6. Tạo giao diện front-end:
+  2.6. Tạo giao diện front-end:
 - html form gồm các file : index.html, fullname.js, fullname.css
   cả 3 file này đặt trong thư mục: `D:\Apache24\fullname`
   nhớ thay fullname là tên của bạn, viết liền, ko dấu, chữ thường, vd tên là Đỗ Duy Cốp thì fullname là `doduycop`
