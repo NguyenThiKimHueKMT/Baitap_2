@@ -98,6 +98,21 @@ Bước 4: Cấu hình file: D:\Apache24\conf\httpd.conf
   Thêm vào cuối file nội dung sau:
   <img width="619" height="180" alt="image" src="https://github.com/user-attachments/assets/ef842d34-d0bf-425d-a606-895719f88ac2" />
   Trong file D:\Apache24\conf\httpd.conf sửa: DocumentRoot "D:/Apache24/nguyenthikimhue" và <Directory "D:/Apache24/nguyenthikimhue">
+  Bước 6: Tạo thư mục D:\Apache24\nguyenthikimhue
+Trong đó tạo file index.html:
+Bước 7: Cấu hình file hosts để fake domain
+Mở file: C:\Windows\System32\drivers\etc\hosts (Mở bằng Notepad quyền Admin (Run as Administrator))
+Sau khi mở, thêm dòng: 127.0.0.1 dauvankhanh.com
+<img width="845" height="751" alt="image" src="https://github.com/user-attachments/assets/62f7314d-810a-4ad7-bf7c-571d11121086" />
+Bước 8: Cài đặt và khởi động Apache
+Mở cmd -> chạy quyền admin (Run as Administrator)
+Bước 9: Kiểm tra kết quả
+Mở trình duyệt, gõ: http://nguyenthikimhue.com
+<img width="852" height="600" alt="image" src="https://github.com/user-attachments/assets/0d999668-1daa-48db-a1cb-5d26ecb66092" />
+
+
+
+
 
   
 
