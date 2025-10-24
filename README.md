@@ -110,12 +110,42 @@ Bước 9: Kiểm tra kết quả
 Mở trình duyệt, gõ: http://nguyenthikimhue.com
 <img width="852" height="600" alt="image" src="https://github.com/user-attachments/assets/0d999668-1daa-48db-a1cb-5d26ecb66092" /> 
 
-2.2. Cài đặt nodered
-Chạy cmd (Admin), vào thư mục D:\nodejs, chạy lệnh npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"
+2.2.  Cài đặt nodejs và nodered => Dùng làm backend  
+2.2.1 Cài đặt nodejs   
+-Tải file: https://nodejs.org/dist/v20.19.5/node-v20.19.5-x64.msi  
+-Cài đặt bằng giao diện (GUI):  
+  Nhấn file: node-v20.19.5-x64.msi   
+  Chọn Next → I Agree → Custom.  
+  Ở phần chọn đường dẫn, đổi thành: D:\nodejs  
+  Bấm Next → Install.  
+  Khi hoàn tất, Node.js sẽ được cài vào D:\nodejs và npm đi kèm.   
+-Kiểm tra: Mở cmd(admin) và chạy:   
+cd \nodejs  
+node -v  
+npm -v    
+<img width="842" height="561" alt="image" src="https://github.com/user-attachments/assets/6ab68c45-c39a-4e29-858d-1ebebe31e43e" />  
+2.2.2 Cài đặt nodered  
+Chạy cmd (Admin), vào thư mục D:\nodejs, chạy lệnh npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"  
 Sau khi chạy cmd, kết quả nodered hiển thị trong thư mục D:\nodejs  
-<img width="1498" height="982" alt="image" src="https://github.com/user-attachments/assets/627f4702-68d7-45f4-9f0a-cee3577809c2" />   
+<img width="1530" height="985" alt="image" src="https://github.com/user-attachments/assets/35d51ea8-074b-4df2-913f-5f88ade5253e" />  
 Cài nssm: https://nssm.cc/release/nssm-2.24.zip.  
-Tạo file "D:\nodejs\nodered\run-nodered.cmd"    
+Tạo file "D:\nodejs\nodered\run-nodered.cmd"   
+<img width="1152" height="925" alt="image" src="https://github.com/user-attachments/assets/fbecb284-96bc-454e-86ce-a92b183a31b4" />  
+Cài service a1-nodered bằng nssm  
+  Mở cmd (Admin), chuyển đến thư mục nodered: cd /d D:\nodejs\nodered   
+  Cài đặt service "a1-nodered" bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd  
+  <img width="811" height="424" alt="image" src="https://github.com/user-attachments/assets/1fd28e76-be05-407e-ab84-a6f895cb83fe" />  
+2.3 Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name  
+2.4. Cài đặt thư viện trên nodered:  
+Truy cập giao diện nodered bằng url: http://nguyenthikimhue.com:1880   
+
+  
+
+
+
+
+
+  
 
 
 
