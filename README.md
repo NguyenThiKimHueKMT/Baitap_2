@@ -108,17 +108,7 @@ Bước 8: Cài đặt và khởi động Apache
 Mở cmd -> chạy quyền admin (Run as Administrator)
 Bước 9: Kiểm tra kết quả
 Mở trình duyệt, gõ: http://nguyenthikimhue.com
-<img width="852" height="600" alt="image" src="https://github.com/user-attachments/assets/0d999668-1daa-48db-a1cb-5d26ecb66092" />  
-
-
-
-
-
-  
-
-
-
-
+<img width="852" height="600" alt="image" src="https://github.com/user-attachments/assets/0d999668-1daa-48db-a1cb-5d26ecb66092" /> 
 
 2.2. Cài đặt nodered
 Chạy cmd (Admin), vào thư mục D:\nodejs, chạy lệnh npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"
