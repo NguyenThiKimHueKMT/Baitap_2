@@ -135,7 +135,37 @@ Cài service a1-nodered bằng nssm
   Mở cmd (Admin), chuyển đến thư mục nodered: cd /d D:\nodejs\nodered   
   Cài đặt service "a1-nodered" bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd  
   <img width="811" height="424" alt="image" src="https://github.com/user-attachments/assets/1fd28e76-be05-407e-ab84-a6f895cb83fe" />  
-2.3 Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name  
+2.3 Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name   
+Cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm trong hệ thống.  
+Tạo DB name : QL_Sach 
+Table name : Sach 
+Server name : KIMHUE.ThuVien-dbo.Sach  
+Port : 1433    
+<img width="684" height="291" alt="image" src="https://github.com/user-attachments/assets/7fc3a0fd-932d-4d81-81f5-95aa467414ef" />   
+Dữ liệu mẫu :  
+<img width="1048" height="851" alt="image" src="https://github.com/user-attachments/assets/a1e56c91-b818-4c39-973a-f6e5a50d1c6d" />  
+Test API (curl / browser) 
+API Truy vấn tìm kiếm sach  
+Tại flow1 trên nodered, sử dụng node http in và http response để tạo api  
+Thêm node MSSQL để truy vấn tới cơ sở dữ liệu  
+logic flow sẽ gồm 4 node theo thứ tự sau:  
+-Thêm http in : dùng GET , URL đặt tuỳ ý, ví dụ: /timkiem  
+<img width="635" height="467" alt="image" src="https://github.com/user-attachments/assets/61fd487a-1eee-49f4-be7d-e590fe3d4968" />  
+-Thêm node function : để tiền xử lý dữ liệu gửi đến  
+<img width="809" height="520" alt="image" src="https://github.com/user-attachments/assets/d6de90ac-49c2-483a-8851-6d6f805578b1" />  
+Thêm node MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ node tiền xử lý  
+<img width="632" height="818" alt="image" src="https://github.com/user-attachments/assets/e096ad97-3f3c-44c7-9e40-e17acb13a782" />  
+<img width="647" height="818" alt="image" src="https://github.com/user-attachments/assets/dfd2beea-acee-43bf-a0d9-097f8bb8f1b3" />  
+ -Thêm node http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json  
+ <img width="636" height="816" alt="image" src="https://github.com/user-attachments/assets/0983b866-d552-4367-bf89-f73e80d8326c" />  
+ -Thêm node debug để quan sát giá trị trung gian.  
+ <img width="650" height="542" alt="image" src="https://github.com/user-attachments/assets/752751b4-fb9f-4163-86b5-6742ba37fb95" />  
+- Kết quả
+  <img width="1436" height="336" alt="image" src="https://github.com/user-attachments/assets/369098b4-eaee-4f07-bd0e-ea52e4bd5fa9" />
+Test API : Tìm kiếm sách
+  Ví dụ : tìm kiếm bánh http://localhost:1880/timkiem?q=tin
+  <img width="614" height="475" alt="image" src="https://github.com/user-attachments/assets/e84051e1-594a-41ad-8139-4fcd3425f6ea" />
+  
 2.4. Cài đặt thư viện trên nodered:  
 Truy cập giao diện nodered bằng url: http://nguyenthikimhue.com:1880   
 
