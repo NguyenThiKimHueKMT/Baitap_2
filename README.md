@@ -167,7 +167,55 @@ Test API : Tìm kiếm sách
   <img width="614" height="475" alt="image" src="https://github.com/user-attachments/assets/e84051e1-594a-41ad-8139-4fcd3425f6ea" />
   
 2.4. Cài đặt thư viện trên nodered:  
-Truy cập giao diện nodered bằng url: http://nguyenthikimhue.com:1880   
+-Cài đặt nodejs:  
+Download file tại : https://nodejs.org/dist/v22.21.0/node-v22.21.0-x64.msi  
+Cài đặt vào thư mục D:\nodejs  
+-Cài đặt nodered:  
+Chạy cmd, vào thư mục D:\nodejs, chạy lệnh npm install -g --unsafe-perm node-red --prefix "D:\nodejs\nodered"    
+Download file: https://nssm.cc/release/nssm-2.24.zip giải nén được file nssm.exe  
+Copy nssm.exe vào thư mục D:\nodejs\nodered\   
+Tạo file "D:\nodejs\nodered\run-nodered.cmd" với nội dung (5 dòng sau):  
+@echo off  
+REM fix path  
+set PATH=D:\nodejs;%PATH%  
+REM Run Node-RED  
+node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work" %*  
+<img width="972" height="601" alt="image" src="https://github.com/user-attachments/assets/32bb1b43-5d3c-48b2-b9d8-7aeca7ea87c8" />  
+Chạy Node-Red  
+Mở cmd với quyền Admin, chuyển đến thư mục: D:\nodejs\nodered  
+Cài đặt service a1-nodered bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd"  
+<img width="1259" height="236" alt="image" src="https://github.com/user-attachments/assets/9581842a-112e-4541-9f20-44290242d395" />  
+Chạy service a1-nodered bằng lệnh: nssm start a1-nodered  
+<img width="918" height="142" alt="image" src="https://github.com/user-attachments/assets/c819e6e9-1d82-46b7-a2e8-014e221dbad6" />  
+Node-Red chạy ở http://localhost:1880  
+<img width="1908" height="1023" alt="image" src="https://github.com/user-attachments/assets/7d4d3134-2a0d-4dbd-b090-92dbd0187f96" />  
+Cài đặt các thư viện    
+node-red-contrib-mssql-plus  
+node-red-node-mysql  
+node-red-contrib-telegrambot  
+node-red-contrib-moment  
+node-red-contrib-influxdb  
+node-red-contrib-duckdns  
+node-red-contrib-cron-plus  
+<img width="639" height="821" alt="image" src="https://github.com/user-attachments/assets/4fb588d0-6118-40a1-b919-6d94f212488f" />  
+- Cài đặt mật khẩu cho Node-Red
+  Sửa file D:\nodejs\nodered\work\settings.js : tìm  adminAuth, bỏ comment # ở đầu dòng (8 dòng), thay chuỗi mã hoá mật khẩu bằng chuỗi mới
+    adminAuth: {
+        type: "credentials",
+        users: [{
+        username: "admin",
+            password: "chuỗi_mã_hoá_mật_khẩu",
+            permissions: "*"
+        }]
+    },
+
+
+
+
+
+
+
+
 
   
 
