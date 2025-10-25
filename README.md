@@ -72,9 +72,12 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
 - fullname.js: lấy dữ liệu trên form, gửi đến api nodered đã làm ở bước 2.5, nhận về json, dùng json trả về để tạo giao diện phù hợp với kết quả truy vấn của bạn.
 - 
 2.7. Nhận xét bài làm của mình:
+  
 
-  Bài Làm:
- 2.1
+Bài Làm  
+
+ 2.1 Cài đặt Apache web server  
+ 
   Bước 1: Vô hiệu hoá IIS
 Nhấn Start → gõ cmd -> Chuột phải vào Command Prompt → chọn Run as administrator -> Sau đó nhập lênh: iisreset /stop
 <img width="1075" height="628" alt="Ảnh chụp màn hình 2025-10-22 210223" src="https://github.com/user-attachments/assets/a77af759-d9ca-426d-84c6-ab0136f4a08b" />
