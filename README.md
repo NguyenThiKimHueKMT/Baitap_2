@@ -96,6 +96,7 @@ Bước 4: Cấu hình file: D:\Apache24\conf\httpd.conf
 + Sau khi mở file sẽ hiển thị:
   <img width="994" height="897" alt="image" src="https://github.com/user-attachments/assets/9d42a1a5-2061-47e5-a281-dc48e138bab2" />
   Thêm vào cuối file nội dung sau:
+  
   <img width="619" height="180" alt="image" src="https://github.com/user-attachments/assets/ef842d34-d0bf-425d-a606-895719f88ac2" />
   
   Trong file D:\Apache24\conf\httpd.conf sửa: DocumentRoot "D:/Apache24/nguyenthikimhue" và <Directory "D:/Apache24/nguyenthikimhue">
