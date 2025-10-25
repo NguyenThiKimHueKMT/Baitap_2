@@ -146,28 +146,7 @@ Port : 1433
 <img width="684" height="291" alt="image" src="https://github.com/user-attachments/assets/7fc3a0fd-932d-4d81-81f5-95aa467414ef" />   
 Dữ liệu mẫu :  
 <img width="1048" height="851" alt="image" src="https://github.com/user-attachments/assets/a1e56c91-b818-4c39-973a-f6e5a50d1c6d" />  
-Test API (curl / browser) 
-API Truy vấn tìm kiếm sach  
-Tại flow1 trên nodered, sử dụng node http in và http response để tạo api  
-Thêm node MSSQL để truy vấn tới cơ sở dữ liệu  
-logic flow sẽ gồm 4 node theo thứ tự sau:  
--Thêm http in : dùng GET , URL đặt tuỳ ý, ví dụ: /timkiem  
-<img width="635" height="467" alt="image" src="https://github.com/user-attachments/assets/61fd487a-1eee-49f4-be7d-e590fe3d4968" />  
--Thêm node function : để tiền xử lý dữ liệu gửi đến  
-<img width="809" height="520" alt="image" src="https://github.com/user-attachments/assets/d6de90ac-49c2-483a-8851-6d6f805578b1" />  
-Thêm node MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ node tiền xử lý  
-<img width="632" height="818" alt="image" src="https://github.com/user-attachments/assets/e096ad97-3f3c-44c7-9e40-e17acb13a782" />  
-<img width="647" height="818" alt="image" src="https://github.com/user-attachments/assets/dfd2beea-acee-43bf-a0d9-097f8bb8f1b3" />  
- -Thêm node http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json  
- <img width="636" height="816" alt="image" src="https://github.com/user-attachments/assets/0983b866-d552-4367-bf89-f73e80d8326c" />  
- -Thêm node debug để quan sát giá trị trung gian.  
- <img width="650" height="542" alt="image" src="https://github.com/user-attachments/assets/752751b4-fb9f-4163-86b5-6742ba37fb95" />  
-- Kết quả
-  <img width="1436" height="336" alt="image" src="https://github.com/user-attachments/assets/369098b4-eaee-4f07-bd0e-ea52e4bd5fa9" />
-Test API : Tìm kiếm sách
-  Ví dụ : tìm kiếm bánh http://localhost:1880/timkiem?q=tin
-  <img width="614" height="475" alt="image" src="https://github.com/user-attachments/assets/e84051e1-594a-41ad-8139-4fcd3425f6ea" />
-  
+
 2.4. Cài đặt thư viện trên nodered:  
 -Cài đặt nodejs:  
 Download file tại : https://nodejs.org/dist/v22.21.0/node-v22.21.0-x64.msi  
@@ -210,6 +189,74 @@ node-red-contrib-cron-plus
             permissions: "*"
         }]
     },
+với mã hoá mật khẩu có thể thiết lập bằng tool: https://tms.tnut.edu.vn/pw.php
+Sau đó chạy lại nodered bằng cách: mở cmd, vào thư mục D:\nodejs\nodered và chạy lệnh nssm restart a1-nodered
+<img width="819" height="227" alt="image" src="https://github.com/user-attachments/assets/94c3f6f3-fe9b-4310-add4-a3f845ba9b71" />
+nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: http://localhost:1880
+<img width="606" height="335" alt="image" src="https://github.com/user-attachments/assets/ca61fc8d-7802-40bb-88b5-ec70286801ab" />
+
+2.5. tạo api back-end bằng nodered  
+Test API (curl / browser) 
+API Truy vấn tìm kiếm sach  
+Tại flow1 trên nodered, sử dụng node http in và http response để tạo api  
+Thêm node MSSQL để truy vấn tới cơ sở dữ liệu  
+logic flow sẽ gồm 4 node theo thứ tự sau:  
+-Thêm http in : dùng GET , URL đặt tuỳ ý, ví dụ: /timkiem  
+<img width="635" height="467" alt="image" src="https://github.com/user-attachments/assets/61fd487a-1eee-49f4-be7d-e590fe3d4968" />  
+-Thêm node function : để tiền xử lý dữ liệu gửi đến  
+<img width="809" height="520" alt="image" src="https://github.com/user-attachments/assets/d6de90ac-49c2-483a-8851-6d6f805578b1" />  
+Thêm node MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ node tiền xử lý  
+<img width="632" height="818" alt="image" src="https://github.com/user-attachments/assets/e096ad97-3f3c-44c7-9e40-e17acb13a782" />  
+<img width="647" height="818" alt="image" src="https://github.com/user-attachments/assets/dfd2beea-acee-43bf-a0d9-097f8bb8f1b3" />  
+ -Thêm node http response: để phản hồi dữ liệu về client: Status Code=200, Header add : Content-Type = application/json  
+ <img width="636" height="816" alt="image" src="https://github.com/user-attachments/assets/0983b866-d552-4367-bf89-f73e80d8326c" />  
+ -Thêm node debug để quan sát giá trị trung gian.  
+ <img width="650" height="542" alt="image" src="https://github.com/user-attachments/assets/752751b4-fb9f-4163-86b5-6742ba37fb95" />  
+- Kết quả
+  <img width="1436" height="336" alt="image" src="https://github.com/user-attachments/assets/369098b4-eaee-4f07-bd0e-ea52e4bd5fa9" />
+Test API : Tìm kiếm sách
+  Ví dụ : tìm kiếm bánh http://localhost:1880/timkiem?q=tin
+  <img width="614" height="475" alt="image" src="https://github.com/user-attachments/assets/e84051e1-594a-41ad-8139-4fcd3425f6ea" />
+2.6. Tạo giao diện front-end
+  Web form gồm các file : index.html, nguyenthikimhue.js, nguyenthikimhue.css cả 3 file này đặt trong thư mục: D:\Apache\Apache24\nguyenthikimhue
+  <img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/53327ce3-dbfe-4420-855c-594cc8784982" />
+  Giao diện
+  <img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/60a76b5a-571e-47c4-a5de-4c8d4d0aa2fb" />
+Tìm kiếm
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/c2c51486-3337-4fbd-aa66-134ba22edd4e" />
+2.7 Kết luận & tự đánh giá
+ - Về quá trình cài đặt phần mềm và các thư viện:
+Em đã hiểu rõ các bước cài đặt Node-RED, SQL Server và các gói thư viện cần thiết. Biết cách cấu hình kết nối cơ sở dữ liệu MSSQL trong Node-RED và kiểm tra hoạt động của API
+Hiểu được quy trình cài đặt và cấu hình các công cụ cần thiết như Node.js, Node-RED, Microsoft SQL Server và các node mở rộng (node-mssql, node-file, node-http).
+Quá trình cài đặt giúp em hiểu cách các thành phần này phối hợp để hình thành một hệ thống back-end hoàn chỉnh.
+Biết cài thêm package vào Node-RED qua Manage Palette.
+-Về sử dụng Node-RED để tạo API back-end:
+Em đã hiểu rõ quy trình xử lý logic trong Node-RED khi tạo một API RESTful, cụ thể là:
+Node HTTP In: nhận yêu cầu từ người dùng, ví dụ /timkiem?q=ten.
+Node Function: xử lý logic, lấy tham số q từ URL, sau đó ghép vào câu truy vấn SQL
+Node MSSQL: nhận câu truy vấn và thực hiện truy xuất dữ liệu từ SQL Server.
+Node HTTP Response: gửi lại dữ liệu dạng JSON về cho client (trình duyệt hoặc ứng dụng).
+Nhờ quy trình này, Em hiểu rằng Node-RED hoạt động như một server trung gian: nhận yêu cầu → truy xuất dữ liệu → xử lý → trả kết quả về.
+-Hiểu cách front-end tương tác với back-end
+Ở phía front-end, mình sử dụng HTML, CSS, JavaScript để tạo giao diện tìm kiếm và hiển thị kết quả.
+HTML: tạo ô nhập liệu để người dùng nhập từ khóa.
+CSS: định dạng bố cục, màu sắc, khoảng cách để trang web dễ nhìn.
+JavaScript: đóng vai trò trung gian giữa giao diện và API Node-RED. Khi người dùng nhập từ khóa và nhấn tìm kiếm, JS sẽ gọi đến API
+API trả về dữ liệu JSON chứa danh sách sách hoặc sản phẩm, sau đó JavaScript sẽ duyệt qua kết quả và hiển thị ra giao diện HTML.
+Qua đó, Em hiểu được luồng tương tác giữa front-end và back-end:
+Người dùng thao tác trên trình duyệt → JavaScript gửi yêu cầu đến API Node-RED → Node-RED truy xuất dữ liệu từ SQL Server → trả kết quả JSON → JavaScript nhận và hiển thị lên web.
+* Sau bài làm, mình không chỉ hiểu cách cài đặt các phần mềm mà còn nắm được toàn bộ luồng xử lý dữ liệu trong một ứng dụng web đơn giản:
+Database (SQL Server) → API (Node-RED) → Giao diện (HTML/CSS/JS).
+
+
+  
+
+
+
+
+
+
+
 
 
 
