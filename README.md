@@ -3,7 +3,7 @@ Nguyễn Thị Kim Huệ - K225480106026
 Bài tập 02: Lập trình web.   
 NỘI DUNG BÀI TẬP:  
 
-**1#2.1. Cài đặt Apache web server:**
+**#2.1. Cài đặt Apache web server:**
 - Vô hiệu hoá IIS: nếu iis đang chạy thì mở cmd quyền admin để chạy lệnh: iisreset /stop
 - Download apache server, giải nén ra ổ D, cấu hình các file:
   + D:\Apache24\conf\httpd.conf
