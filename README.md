@@ -3,7 +3,7 @@ Nguyễn Thị Kim Huệ - K225480106026
 Bài tập 02: Lập trình web.   
 NỘI DUNG BÀI TẬP:  
 
-**#2.1. Cài đặt Apache web server:**
+**2.1. Cài đặt Apache web server:**
 - Vô hiệu hoá IIS: nếu iis đang chạy thì mở cmd quyền admin để chạy lệnh: iisreset /stop
 - Download apache server, giải nén ra ổ D, cấu hình các file:
   + D:\Apache24\conf\httpd.conf
@@ -14,7 +14,7 @@ NỘI DUNG BÀI TẬP:
   ví dụ sv tên là: `Đỗ Duy Cốp` thì tạo website với domain là fullname ko dấu, liền nhau: `doduycop.com`
 - thao tác dòng lệnh trên file `D:\Apache24\bin\httpd.exe` với các tham số `-k install` và `-k start` để cài đặt và khởi động web server apache.
   
-2.2. Cài đặt nodejs và nodered => Dùng làm backend:
+**2.2. Cài đặt nodejs và nodered => Dùng làm backend:**
 - Cài đặt nodejs:
   + download file `https://nodejs.org/dist/v20.19.5/node-v20.19.5-x64.msi`  (đây ko phải bản mới nhất, nhưng ổn định)
   + cài đặt vào thư mục `D:\nodejs`
@@ -33,8 +33,8 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   + cài đặt service `a1-nodered` bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd"
   + chạy service `a1-nodered` bằng lệnh: `nssm start a1-nodered`
   + 
-2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name  
-2.4. Cài đặt thư viện trên nodered:
+**2.3. Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name**
+**2.4. Cài đặt thư viện trên nodered:**
     
 - truy cập giao diện nodered bằng url: http://localhost:1880
 - cài đặt các thư viện: node-red-contrib-mssql-plus, node-red-node-mysql, node-red-contrib-telegrambot, node-red-contrib-moment, node-red-contrib-influxdb, node-red-contrib-duckdns, node-red-contrib-cron-plus
@@ -52,7 +52,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
 - chạy lại nodered bằng cách: mở cmd, vào thư mục `D:\nodejs\nodered` và chạy lệnh `nssm restart a1-nodered`
   khi đó nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: http://localhost:1880
   
-2.5. tạo api back-end bằng nodered:
+**2.5. tạo api back-end bằng nodered:**
 - tại flow1 trên nodered, sử dụng node `http in` và `http response` để tạo api
 - thêm node `MSSQL` để truy vấn tới cơ sở dữ liệu
 - logic flow sẽ gồm 4 node theo thứ tự sau (thứ tự nối dây): 
@@ -63,7 +63,7 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
   có thể thêm node `debug` để quan sát giá trị trung gian.
 - test api thông qua trình duyệt, ví dụ: http://localhost:1880/timkiem?q=thị
   
-  2.6. Tạo giao diện front-end:
+  **2.6. Tạo giao diện front-end:**
 - html form gồm các file : index.html, fullname.js, fullname.css
   cả 3 file này đặt trong thư mục: `D:\Apache24\fullname`
   nhớ thay fullname là tên của bạn, viết liền, ko dấu, chữ thường, vd tên là Đỗ Duy Cốp thì fullname là `doduycop`
@@ -71,12 +71,12 @@ node "D:\nodejs\nodered\node_modules\node-red\red.js" -u "D:\nodejs\nodered\work
 - index.html và fullname.css: trang trí tuỳ ý, có dấu ấn cá nhân, có form nhập được thông tin.
 - fullname.js: lấy dữ liệu trên form, gửi đến api nodered đã làm ở bước 2.5, nhận về json, dùng json trả về để tạo giao diện phù hợp với kết quả truy vấn của bạn.
 - 
-2.7. Nhận xét bài làm của mình:
+**2.7. Nhận xét bài làm của mình:**
   
 
 Bài Làm  
 
- 2.1 Cài đặt Apache web server  
+ **2.1 Cài đặt Apache web server**  
  
   Bước 1: Vô hiệu hoá IIS
 Nhấn Start → gõ cmd -> Chuột phải vào Command Prompt → chọn Run as administrator -> Sau đó nhập lênh: iisreset /stop
@@ -115,7 +115,7 @@ Bước 9: Kiểm tra kết quả
 Mở trình duyệt, gõ: http://nguyenthikimhue.com
 <img width="852" height="600" alt="image" src="https://github.com/user-attachments/assets/0d999668-1daa-48db-a1cb-5d26ecb66092" /> 
 
-2.2.  Cài đặt nodejs và nodered => Dùng làm backend  
+**2.2.  Cài đặt nodejs và nodered => Dùng làm backend**  
 2.2.1 Cài đặt nodejs   
 -Tải file: https://nodejs.org/dist/v20.19.5/node-v20.19.5-x64.msi  
 -Cài đặt bằng giao diện (GUI):  
@@ -140,8 +140,8 @@ Cài service a1-nodered bằng nssm
   Mở cmd (Admin), chuyển đến thư mục nodered: cd /d D:\nodejs\nodered   
   Cài đặt service "a1-nodered" bằng lệnh: nssm.exe install a1-nodered "D:\nodejs\nodered\run-nodered.cmd  
   <img width="811" height="424" alt="image" src="https://github.com/user-attachments/assets/1fd28e76-be05-407e-ab84-a6f895cb83fe" />  
-2.3 Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name   
-Cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm trong hệ thống.  
+**2.3 Tạo csdl tuỳ ý trên mssql (sql server 2022), nhớ các thông số kết nối: ip, port, username, password, db_name, table_name   
+Cơ sở dữ liệu được thiết kế nhằm lưu trữ và quản lý thông tin sản phẩm trong hệ thống.**  
 Tạo DB name : QL_Sach 
 Table name : Sach 
 Server name : KIMHUE.ThuVien-dbo.Sach  
@@ -150,7 +150,7 @@ Port : 1433
 Dữ liệu mẫu :  
 <img width="1048" height="851" alt="image" src="https://github.com/user-attachments/assets/a1e56c91-b818-4c39-973a-f6e5a50d1c6d" />  
 
-2.4. Cài đặt thư viện trên nodered:  
+**2.4. Cài đặt thư viện trên nodered:**  
 -Cài đặt nodejs:  
 Download file tại : https://nodejs.org/dist/v22.21.0/node-v22.21.0-x64.msi  
 Cài đặt vào thư mục D:\nodejs  
@@ -198,7 +198,7 @@ Sau đó chạy lại nodered bằng cách: mở cmd, vào thư mục D:\nodejs\
 nodered sẽ yêu cầu nhập mật khẩu mới vào được giao diện cho admin tại: http://localhost:1880
 <img width="606" height="335" alt="image" src="https://github.com/user-attachments/assets/ca61fc8d-7802-40bb-88b5-ec70286801ab" />
 
-2.5. tạo api back-end bằng nodered  
+**2.5. tạo api back-end bằng nodered**  
 Test API (curl / browser) 
 API Truy vấn tìm kiếm sach  
 Tại flow1 trên nodered, sử dụng node http in và http response để tạo api  
@@ -220,14 +220,14 @@ Thêm node MSSQL: để truy vấn dữ liệu tới CSDL, nhận tham số từ
 Test API : Tìm kiếm sách
   Ví dụ : tìm kiếm bánh http://localhost:1880/timkiem?q=tin
   <img width="614" height="475" alt="image" src="https://github.com/user-attachments/assets/e84051e1-594a-41ad-8139-4fcd3425f6ea" />
-2.6. Tạo giao diện front-end
+**2.6. Tạo giao diện front-end**
   Web form gồm các file : index.html, nguyenthikimhue.js, nguyenthikimhue.css cả 3 file này đặt trong thư mục: D:\Apache\Apache24\nguyenthikimhue
   <img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/53327ce3-dbfe-4420-855c-594cc8784982" />
   Giao diện
   <img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/60a76b5a-571e-47c4-a5de-4c8d4d0aa2fb" />
 Tìm kiếm
 <img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/c2c51486-3337-4fbd-aa66-134ba22edd4e" />
-2.7 Kết luận & tự đánh giá
+**2.7 Kết luận & tự đánh giá**
  - Về quá trình cài đặt phần mềm và các thư viện:
 Em đã hiểu rõ các bước cài đặt Node-RED, SQL Server và các gói thư viện cần thiết. Biết cách cấu hình kết nối cơ sở dữ liệu MSSQL trong Node-RED và kiểm tra hoạt động của API
 Hiểu được quy trình cài đặt và cấu hình các công cụ cần thiết như Node.js, Node-RED, Microsoft SQL Server và các node mở rộng (node-mssql, node-file, node-http).
